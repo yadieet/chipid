@@ -232,14 +232,15 @@ public final class Chipid
 				try
 				{
 					bs = Integer.parseInt(args[4]) * 1048576;
-					if( bs < 1048576 )
-						bs = 1048576;
 				}
 				catch( NumberFormatException nbe )
 				{
 					System.out.println("Invalid arguments..");
 					return;
 				}
+				
+				if( bs < 1048576 )
+					bs = 1048576;
 
 				if( "decrypt".equals(args[0]) )
 					decryptFile((BCECPrivateKey) loadKey(false, args[1]), args[2], args[3], bs);
